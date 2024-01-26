@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { Container, Nav } from 'react-bootstrap';
+import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import { NavLink, Link } from 'react-router-dom';
-
 
 const styles = {
   customNavbar: {
@@ -11,26 +10,24 @@ const styles = {
   },
   container: {
     display: 'flex',
-    // justifyContent: 'space-between',
-    // alignItems: 'center',
-  },
-  brand: {
-    marginLeft: '20%',
-    display: 'flex',
     alignItems: 'center',
   },
+  brand: {
+    display: 'flex',
+    alignItems: 'center',
+    marginLeft: '20%',
+    marginRight: '5%',
+  },
   brandText: {
-    paddingLeft: '30px',
-    textDecoration: 'underline', // Устанавливаем подчеркивание
-  textDecorationColor: 'white', // Цвет подчеркивания
-  textDecorationThickness: '2px', // Толщина подчеркивания
+    paddingLeft: '10px',
+    textDecoration: 'underline',
+    textDecorationColor: 'white',
+    textDecorationThickness: '2px',
     color: 'white',
   },
   navBr: {
-    marginLeft: '20px',
     display: 'flex',
     alignItems: 'center',
-    // marginRight: '20%',
   },
   navLink: {
     color: 'white',
@@ -45,25 +42,18 @@ const styles = {
 };
 
 const Menu = () => {
-  const [isOpen, setIsOpen] = useState(true);
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
 
   return (
-    <>
-      <nav className="navbar navbar-expand-lg navbar-light" style={styles.customNavbar}>
-        <Container style={styles.container}>
-          <Link to="/" className="text-white d-flex align-items-center" style={styles.brand}>
-            <h2 className="m-0 ml-2" style={styles.brandText}>
-              Руснак Анна
-            </h2>
-          </Link>
-          <Nav  style={styles.navBr}>
-            {/* <NavLink to="/Home" className="nav-link" style={styles.navLink} activeStyle={styles.activeNavLink}>
-              О себе
-            </NavLink> */}
+    <Navbar expand="lg" style={styles.customNavbar}>
+      <Container style={styles.container}>
+        <Link to="/" className="text-white d-flex align-items-center" style={styles.brand}>
+          <h2 className="m-0 ml-2" style={styles.brandText}>
+            Руснак Анна
+          </h2>
+        </Link>
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="ml-auto" style={styles.navBr}>
             <NavLink to="/Achivment" className="nav-link" style={styles.navLink} activeStyle={styles.activeNavLink}>
               Мои достижения
             </NavLink>
@@ -74,9 +64,9 @@ const Menu = () => {
               Достижение воспитаников
             </NavLink>
           </Nav>
-        </Container>
-      </nav>
-    </>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   );
 };
 

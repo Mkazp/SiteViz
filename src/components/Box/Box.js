@@ -4,11 +4,14 @@ import s from'./Box.module.scss'
 const PdfList = () => {
   const [pdfFiles, setPdfFiles] = useState([]);
 
+  const url = 'http://rusakanna.ru';
+
   useEffect(() => {
     const fetchPdfFiles = async () => {
       try {
         // Получаем имена файлов из папки public/pdf
-        const response = await fetch('http://localhost:3001/pdf-list');
+        //const response = await fetch(`http://localhost:3001/pdf-list`);
+        const response = await fetch(`${url}/pdf-list`);
         const data = await response.json();
         setPdfFiles(data.files);
       } catch (error) {
