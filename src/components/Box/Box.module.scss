@@ -1,0 +1,30 @@
+.Title{
+    font-size: 2em;
+}
+
+.hh1{
+    text-align: center;
+    width: 100%;
+    margin-top: 40px;
+}
+
+.ConteinerTl{
+    padding: 80px;
+}
+
+.bat{
+    border: 2px solid darkblue;
+    border-radius: 5px;
+    background-color: transparent;
+    width: 100px;
+    height: 50px;
+    margin-bottom: 40px;
+    margin-top: 10px;
+    color: darkblue
+}
+
+.bat:hover{
+    cursor: pointer;
+    background-color: darkblue;
+    color:white
+}
