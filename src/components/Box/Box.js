@@ -1,29 +1,34 @@
 import React, { useEffect, useState } from 'react';
-import s from'./Box.module.scss'
+import s from './Box.module.scss';
 
 const PdfList = () => {
   const [pdfFiles, setPdfFiles] = useState([]);
 
-  const url = 'http://rusakanna.ru';
+  const url = 'https://rusakanna.ru';
 
   useEffect(() => {
     const fetchPdfFiles = async () => {
       try {
-        // Получаем имена файлов из папки public/pdf
-        //const response = await fetch(`http://localhost:3001/pdf-list`);
         const response = await fetch(`${url}/pdf-list`);
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
         const data = await response.json();
-        setPdfFiles(data.files);
+        
+        // Преобразуем объект в массив значений
+        const filesArray = Object.values(data.files);
+        setPdfFiles(filesArray);
       } catch (error) {
-        console.error('Error fetching PDF files:', error);
+        console.error('Error fetching PDF files:', error.message);
       }
     };
 
     fetchPdfFiles();
-  }, []);
+  }, [url]);
 
   const downloadPdf = (filename) => {
-    const downloadUrl = `/pdf/${filename}`;
+    const downloadUrl = `${url}/pdf/${filename}`;
     window.open(downloadUrl, '_blank');
   };
 

@@ -10,6 +10,7 @@
 }
 
 .overlay {
+  overflow-x: hidden;
   position: fixed;
   top: 0;
   left: 0;
@@ -33,6 +34,7 @@
 
 .overlay:hover .expandedImage {
   transform: scale(1.1);
+  overflow-x: hidden;
 }
 
 .title{
