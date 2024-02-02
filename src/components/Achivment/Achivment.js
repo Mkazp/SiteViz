@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styles from './Achivment.module.scss';
+import { Container } from '@mui/material';
 
 const Achivment = () => {
   const [expandedImage, setExpandedImage] = useState(null);
@@ -24,6 +25,8 @@ const Achivment = () => {
           onClick={() => handleImageClick(image)}
         >
           <img
+            srcSet={`${image} 1600w, ${image.replace('.jpg', '_1000x600.jpg')} 1000w`}
+            sizes=""
             src={image}
             alt={`Image ${index + 1}`}
             className={styles.image}
@@ -34,6 +37,8 @@ const Achivment = () => {
       {expandedImage && (
         <div className={styles.overlay} onClick={handleClose}>
           <img
+            srcSet={`${expandedImage} 1600w, ${expandedImage.replace('.jpg', '_1000x600.jpg')} 1000w`}
+            sizes="(max-width: 1600px) 100vw, 1600px"
             src={expandedImage}
             alt="Expanded Image"
             className={styles.expandedImage}
@@ -45,4 +50,3 @@ const Achivment = () => {
 };
 
 export default Achivment;
-

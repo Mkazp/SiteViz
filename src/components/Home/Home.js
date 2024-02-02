@@ -1,4 +1,4 @@
-import React from 'react';
+/*import React from 'react';
 import { styled } from '@mui/system';
 import { Container, Grid, Typography, Paper, Box, Card, CardContent, CardMedia } from '@mui/material';
 import Image from './foto3.jpg';
@@ -145,3 +145,193 @@ const Home = () => {
 };
 
 export default Home;
+*/
+
+import React from 'react';
+import { styled } from '@mui/system';
+import {
+  Container,
+  Grid,
+  Typography,
+  Paper,
+  Box,
+} from '@mui/material';
+import Image from './foto3.jpg';
+
+const MainContainer = styled(Container)({
+  left: 0,
+  right: 0,
+  backgroundColor: 'rgba(0, 0, 0, 0)',
+});
+
+const MainRam = styled(Container)({
+  marginTop: 100,
+  // marginLeft: 30,
+  display: 'flex',
+  width: '100%',
+  flexDirection: 'column',
+  alignItems: 'center', // Центрирование по вертикали
+});
+
+const ImageContainer = styled('div')({
+  width: '40%',
+  display: 'inline-block',
+  backgroundColor: 'rgba(0, 0, 0, 0)',
+  marginBottom: 20,
+  '@media (max-width: 1024px)': {
+    width: '100%',
+    height: 'auto',
+  },
+  '@media (max-width: 600px)': {
+    width: '100%',
+    margin: 'auto',
+  },
+});
+
+const ImageStyled = styled('img')({
+  width: '100%',
+  height: 'auto',
+});
+
+
+const TextContainer = styled('div')({
+  paddingLeft: '5%',
+  width: '40%',
+  display: 'inline-block',
+  '@media (max-width: 1800px)': {
+    width: '40%',
+    display: 'inline-block', 
+    paddingLeft: '5%',
+  },
+  '@media (max-width: 1024px)': {
+    width: '100%',
+    paddingLeft: '5%',
+  },
+  '@media (max-width: 600px)': {
+    width: '100%',
+    margin: '5px',
+    textAlign: 'center',
+  },
+});
+
+const Alter = styled(Box)({
+  marginBottom: 20,
+});
+
+
+const Sth = styled(Paper)(({ theme }) => ({
+  width: '30%', // Ширина по умолчанию для больших экранов
+  margin: 20,
+  padding: 10,
+  alignItems: 'center',
+  textAlign: 'center',
+  justifyContent: 'center',
+
+  '@media (max-width: 1800px)': {
+    width: '30%', // При ширине экрана до 1600px
+  },
+
+  '@media (max-width: 1024px)': {
+    width: '100%', // При ширине экрана до 1024px и ниже
+  },
+
+  '@media (max-width: 600px)': {
+    width: '100%', // При ширине экрана до 600px и ниже
+  },
+}));
+
+const SthContainer = styled('div')({
+  display: 'flex',
+  flexWrap: 'wrap',
+  justifyContent: 'center',
+  width: '100%',
+  backgroundColor: 'rgba(0, 0, 0, 0)',
+  alignItems: 'center',
+  textAlign: 'center',
+});
+
+const Home = () => {
+  return (
+    <MainContainer>
+      <MainRam>
+        <Grid container>
+          <Grid item component={ImageContainer}>
+            <ImageStyled src={Image} alt="Ваш текст для атрибута alt" />
+          </Grid>
+          <Grid item component={TextContainer}>
+            <Typography variant="h4" sx={{ textAlign: 'center', paddingBottom: '10px'}}>
+              <strong>Руснак Анна Валерьевна - воспитатель высшей категории</strong>
+            </Typography>
+
+            <div component={Alter}>
+              <Typography variant="h5"><strong>Образование:</strong></Typography>
+              <Typography>
+                Высшее: "Международная школа бизнеса", 1999 год. <br />
+                Специальность: "Менеджмент". <br />
+                Квалификация: "Финансовый менеджер". <br />
+                Профессиональная переподготовка: АНО высшего профессионального образования РФ "Российский университет кооперации", 2013 год.
+                <br />
+              </Typography>
+            </div>
+
+            <div component={Alter}>
+              <Typography variant="h5"><strong>Опыт:</strong></Typography>
+              <Typography>
+                Стаж педагогической работы: 10 лет. <br />
+                В дошкольном учреждении: 12 лет. <br />
+              </Typography>
+            </div>
+
+            <div component={Alter}>
+              <Typography variant="h5"><strong>Дополнительная информация:</strong></Typography>
+              <Typography>
+                Большой опыт проектной деятельности в детском саду. <br />
+                Проведение открытых показов для воспитателей. <br />
+                Выступление на педагогических советах. <br />
+                Участие в муниципальных методических объединениях воспитателей. <br />
+                Участие в фестивалях детского творчества:
+                <ul>
+                  <li>"Звездный калейдоскоп -2018"</li>
+                  <li>"Звездный калейдоскоп -2019"</li>
+                  <li>"Звездный калейдоскоп -2020"</li>
+                  <li>"Звездный калейдоскоп -2021"</li>
+                  <li>"Звездный калейдоскоп -2022"</li>
+                </ul>
+              </Typography>
+            </div>
+          </Grid>
+        </Grid>
+      </MainRam>
+
+      <SthContainer>
+        <Sth>
+          <Typography>
+            Пришла в детский сад- <br />
+            Улыбнись на пороге. <br />
+            Всё то, что ты детям отдашь, <br />
+            К тебе возвратится в итоге. <br />
+          </Typography>
+        </Sth>
+        <Sth>
+          <Typography>
+            Воспитателем надо родиться, <br />
+            Чтобы детей непременно любить. <br />
+            И терпенье иметь, не сердиться <br />
+            И заботой уметь окружить. <br />
+          </Typography>
+        </Sth>
+        <Sth>
+          <Typography>
+            Воспитатель без любви к ребёнку - всё равно, <br />
+            что певец без голоса, <br />
+            музыкант без слуха, <br />
+            живописец без чувства цвета <br />
+          </Typography>
+        </Sth>
+      </SthContainer>
+    </MainContainer>
+  );
+};
+
+export default Home;
+

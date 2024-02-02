@@ -41,7 +41,7 @@ const PdfList = () => {
             <div>
               <span>{file}</span>
             </div>
-            <button className={s.bat} onClick={() => downloadPdf(file)}>Скачать</button>
+            <button className={s.bat} onClick={() => downloadPdf(file)}>Просмотреть</button>
           </li>
         ))}
       </ul>

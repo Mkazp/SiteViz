@@ -48,10 +48,16 @@
   
   .title{
     width: 100%;
-    font-size: 4em;
+    font-size: 8em;
     text-align: center;
     margin-top: 80px;
     margin-bottom: 80px;
+    @media screen and (max-width: 1800px) {
+      font-size: 6em; // добавляем отступ снизу для мобильных экранов
+    }
+    @media screen and (max-width: 600px) {
+      font-size: 2em; // добавляем отступ снизу для мобильных экранов
+    } 
   }
 
   .main{
